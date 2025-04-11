@@ -1,6 +1,6 @@
 # FastAPI Rate Limiter
 
-A FastAPI backend with configurable rate limiting implementations.
+A FastAPI backend boilerplate with configurable rate limiting implementations.
 
 ## Rate Limiting Algorithms
 
@@ -18,6 +18,24 @@ A FastAPI backend with configurable rate limiting implementations.
 - Window is determined by the floor of the current timestamp
 - If more than 10 requests occur in a window, additional requests are rejected
 - Windows reset automatically when a new time period starts
+
+## Setup
+
+1. Create and activate a virtual environment:
+```bash
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+```
+
+2. Install dependencies:
+```bash
+pip install -r requirements.txt
+```
+
+3. Run the server:
+```bash
+uvicorn main:app --reload
+```
 
 ## Configuration System
 
@@ -79,18 +97,6 @@ The rate limiters are configured with:
 - Window size: 60 seconds (1 minute)
 - Maximum requests per window: 10
 
-## Running the Application
-
-1. Install dependencies:
-```
-pip install -r requirements.txt
-```
-
-2. Run the server:
-```
-uvicorn main:app --reload
-```
-
 ## Testing the Rate Limiters
 
 ### Pre-configured Routes
@@ -98,17 +104,30 @@ uvicorn main:app --reload
 The following routes have rate limiting pre-configured:
 
 - Token Bucket Rate Limiting:
-  - `/limited`
+  - `/token-bucket`
 
 - Fixed Window Rate Limiting:
-  - `/fixed`
+  - `/fixed-window`
 
 - No Rate Limiting:
+  - `/`
   - `/unlimited`
-  - `/health`
 
 ### API Documentation
 
 FastAPI provides automatic documentation:
 - Swagger UI: http://localhost:8000/docs
-- ReDoc: http://localhost:8000/redoc 
+- ReDoc: http://localhost:8000/redoc
+
+## Testing
+
+Run the test suite:
+```bash
+pytest
+```
+
+The test suite includes:
+1. Unit tests for each rate limiting algorithm
+2. Integration tests for the FastAPI application
+3. Configuration system tests
+4. Runtime configuration tests 
