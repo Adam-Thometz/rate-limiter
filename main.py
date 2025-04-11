@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.middleware.rate_limiter.unified_limiter import unified_rate_limit_middleware
-from app.middleware.rate_limiter.config import rate_limit_config, RateLimitType
+from app.middleware.rate_limiter.rate_limit_config import rate_limit_config, RateLimitType
 
 app = FastAPI(
     title="FastAPI Backend",

@@ -1,6 +1,6 @@
 from fastapi import Request, status
 from fastapi.responses import JSONResponse
-from app.middleware.rate_limiter.config import RateLimitType, rate_limit_config
+from app.middleware.rate_limiter.rate_limit_config import RateLimitType, rate_limit_config
 from app.middleware.rate_limiter.token_bucket import token_bucket
 from app.middleware.rate_limiter.fixed_window import fixed_window_counter
 

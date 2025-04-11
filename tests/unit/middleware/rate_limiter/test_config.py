@@ -1,5 +1,5 @@
 import pytest
-from app.middleware.rate_limiter.config import RateLimitConfig, RateLimitType
+from app.middleware.rate_limiter.rate_limit_config import RateLimitConfig, RateLimitType
 
 class TestRateLimitConfig:
 

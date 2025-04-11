@@ -4,7 +4,7 @@ from fastapi.testclient import TestClient
 import time
 from unittest.mock import patch
 from app.middleware.rate_limiter.unified_limiter import unified_rate_limit_middleware
-from app.middleware.rate_limiter.config import rate_limit_config, RateLimitType
+from app.middleware.rate_limiter.rate_limit_config import rate_limit_config, RateLimitType
 
 # Reset the rate limit configuration for each test
 @pytest.fixture(autouse=True)
